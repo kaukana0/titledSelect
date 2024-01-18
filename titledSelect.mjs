@@ -27,13 +27,16 @@ class Element extends HTMLElement {
 		const css = document.createElement('style')
 		css.textContent = CSS()
 		this.shadowRoot.appendChild(css)
+		this.#box.setAttribute("id",this.getAttribute("id"))	// hack because of select.mjs #makeDismissable() implementation
 	}
 
-	static get observedAttributes() { return ['labelleft', 'labelnumber', 'labelright'] }
+	static get observedAttributes() { return ['labelleft', 'labelnumber', 'labelright', 'id'] }
 	attributeChangedCallback(name, oldVal, newVal) {
 		if(name === 'labelleft') { this.labelLeft = newVal }
 		if(name === 'labelnumber') { this.labelNumber = newVal }
 		if(name === 'labelright') { this.labelRight = newVal }
+		
+		if(name === 'id') { this.#box.setAttribute("id",newVal) }
 	}
 
 	get div() { return this.#div }
@@ -84,10 +87,6 @@ class Element extends HTMLElement {
 		this.#box = document.createElement('ecl-like-select-x')
 
 		this.#box.setAttribute("dimension", this.getAttribute("dimension"))
-		//this.#box.setAttribute("multiselect", this.getAttribute("multiselect"))
-		//this.#box.setAttribute("favoriteStar", this.getAttribute("favoriteStar"))
-		//this.#box.setAttribute("textForMultiselect", this.getAttribute("textForMultiselect"))
-		//this.#box.setAttribute("style", this.getAttribute("style"))
 
 		this.#div.appendChild(this.#divB)
 
