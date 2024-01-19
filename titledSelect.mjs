@@ -33,7 +33,7 @@ class Element extends HTMLElement {
 
 	// forward most of them
 	static get observedAttributes() { return ['labelleft', 'labelnumber', 'labelright', 
-		'id', 'onSelect', 'onSelected', 'multiselect', 'textformultiselect'] }
+		'id', 'onselect', 'onselected', 'multiselect', 'textformultiselect', 'displaykeys', 'fractions'] }
 
 	attributeChangedCallback(name, oldVal, newVal) {
 		if(name === 'labelleft') { this.labelLeft = newVal; return }
