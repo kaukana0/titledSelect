@@ -28,15 +28,19 @@ class Element extends HTMLElement {
 		css.textContent = CSS()
 		this.shadowRoot.appendChild(css)
 		this.#box.setAttribute("id",this.getAttribute("id"))	// hack because of select.mjs #makeDismissable() implementation
+		this.#box.setAttribute("multiselect",this.getAttribute("multiselect"))
 	}
 
-	static get observedAttributes() { return ['labelleft', 'labelnumber', 'labelright', 'id'] }
+	// forward most of them
+	static get observedAttributes() { return ['labelleft', 'labelnumber', 'labelright', 
+		'id', 'onSelect', 'onSelected', 'multiselect', 'textformultiselect'] }
+
 	attributeChangedCallback(name, oldVal, newVal) {
-		if(name === 'labelleft') { this.labelLeft = newVal }
-		if(name === 'labelnumber') { this.labelNumber = newVal }
-		if(name === 'labelright') { this.labelRight = newVal }
-		
-		if(name === 'id') { this.#box.setAttribute("id",newVal) }
+		if(name === 'labelleft') { this.labelLeft = newVal; return }
+		if(name === 'labelnumber') { this.labelNumber = newVal; return }
+		if(name === 'labelright') { this.labelRight = newVal; return }
+
+		this.#box.setAttribute(name,newVal)
 	}
 
 	get div() { return this.#div }
