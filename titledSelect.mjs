@@ -82,6 +82,7 @@ class Element extends HTMLElement {
 
 		this.#labelNumber = document.createElement('a')
 		this.#labelRight = document.createElement('a')
+		this.#labelRight.classList.add("labelRight")
 		divC.appendChild(this.#labelNumber)
 		divC.appendChild(this.#labelRight)
 
@@ -134,9 +135,13 @@ function CSS() {
 		margin-right: 5px;
 	}
 	.label {
+		color: #141517;
 		padding-left: 5px;
 		font-weight: 600;
 		line-height: 24px;
+	}
+	.labelRight {
+		font-size: 14px;
 	}
 	.bottomDistance {
 		margin-bottom: 5px;
