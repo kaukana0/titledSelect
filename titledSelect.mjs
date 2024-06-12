@@ -137,7 +137,6 @@ function CSS() {
 	}
 	.label {
 		color: #141517;
-		padding-left: 5px;
 		font-weight: 600;
 		line-height: 24px;
 	}
