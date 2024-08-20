@@ -33,8 +33,7 @@ class Element extends HTMLElement {
 
 	// forward most of them
 	static get observedAttributes() { return ['labelleft', 'labelnumber', 'labelright', 
-		'id', 'onselect', 'onselected', 'multiselect', 'textformultiselect', 'displaykeys',
-		'fractions', 'resetbutton', 'displaykeyinheadbox'] }
+		'id', 'onselect', 'onselected', 'multiselect', 'textformultiselect', 'displaykeys', 'fractions', 'resetbutton'] }
 
 	attributeChangedCallback(name, oldVal, newVal) {
 		if(name === 'labelleft') { this.labelLeft = newVal; return }
@@ -137,6 +136,7 @@ function CSS() {
 	}
 	.label {
 		color: #141517;
+		padding-left: 5px;
 		font-weight: 600;
 		line-height: 24px;
 	}
