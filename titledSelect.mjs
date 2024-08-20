@@ -110,6 +110,7 @@ class Element extends HTMLElement {
 
 	set multiselect(val) { this.#box.setAttribute("multiselect",val) }
 
+	focus() {	this.#box.focus()	}
 }
 
 
